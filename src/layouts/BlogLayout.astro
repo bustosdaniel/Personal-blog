@@ -1,0 +1,42 @@
+---
+import Layout from "./Layout.astro";
+const {frontmatter} = Astro.props;
+---
+  <!-- ... -->
+	<Layout title="titulo">
+		<div transition:name={`image${frontmatter.url}`} class="rounded-tl-[50px] rounded-tr-[50px] shadow-lg w-full justify-center my-10 mx-auto relative pb-7 ">
+			<img class="object-cover h-[500px] w-full rounded-tl-[50px] rounded-tr-[50px]" src={frontmatter.image} alt="" />
+			<div class="flex justify-between mx-5 mt-9 m-3">
+				<p class="text-[#a3abb2] text-sm">{frontmatter.author}</p>
+				<p class="text-[#a3abb2] text-sm">{frontmatter.createAt}</p>
+			</div>
+			<h1 transition:name={`title ${frontmatter.url} text`} class="m-0 text-[#FFFFFF] font-bold absolute top-96 text-center w-full text-5xl">
+				{frontmatter.title}
+			</h1>
+			<p class="mb-6 mt-6 mx-5">
+				{frontmatter.description}
+			</p>
+		 	<p class="mb-6 mt-6 mx-5">ñlkjhfssdfghj</p>
+			<h2 class="mx-5 my-6">{frontmatter.subtitle}</h2>
+			<!-- <p class="mx-5 mt-9"></p> -->
+			<div class="prose prose-code:text-red-500 max-w-none px-10 py-10 pb-3">
+      	<slot />
+			</div>
+	</Layout>
+
+	<style is:global>
+		code {
+			padding: 0.1em 0.3em;
+			color: #da415f;
+			background: #f9f2f4;
+			border-radius: 0.3em;
+			white-space: pre-wrap;
+		}
+		code::before {
+			display: none;
+		}
+		code::after {
+			display: none;
+		}
+	</style>
+   <!-- ... -->

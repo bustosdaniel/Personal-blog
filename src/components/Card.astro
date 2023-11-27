@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import {Icon} from 'astro-icon'
+import type { Frontmatter } from '../types';
+type Props = Frontmatter & {url: string}
+
+const { image, title, author, description, createAt, tag, url } = Astro.props;
+console.log(tag)
+---
+
+<li class="list-none shadow-lg rounded-tl-[50px] rounded-tr-[50px]">
+	<a href={url}>
+		<div class="h-[280px] relative">
+			<Image 
+				transition:name={`image${url}`}
+				src={image} 
+				alt="image" 
+				width={320} 
+				height={280} 
+				class="object-cover h-[280px] rounded-tl-[50px] rounded-tr-[50px] w-full"/>
+			<!-- <Icon 
+				name={tag} 
+				class="w-12 h-12 rounded-full bg-white text-[#03d8ff] p-2 border-2 border-[#03d8ff] absolute bottom-[-24px] left-[140px]"
+			/> -->
+		</div>
+		<div class="d flex justify-between mx-5 mt-9">
+			<p class="text-[#a3abb2] text-sm">{author}</p>
+			<p class="text-[#a3abb2] text-sm">{createAt}</p>
+		</div>
+		<h1 transition:name={`title ${url} text`} class="mt-4 mx-5 text-[#66707c] text-lg font-bold">
+			{title}
+		</h1>
+		<p class="mb-6 mt-4 mx-5">
+			{description}
+		</p>
+	</a>
+</li>
+
