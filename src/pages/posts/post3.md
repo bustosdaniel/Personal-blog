@@ -12,6 +12,8 @@ description: Aprendi como hacer un spinner por medio de css
 
 ---
 
+Para hacer un spinner necesitamos la etiqueta `div` que este vacia, además se debe establecer `keyframes` con sus respectivos estilos para que asi se haga visible el estado en el que esta el spinner.
+
 ```js
 <div
   className="spinner"
@@ -25,4 +27,18 @@ description: Aprendi como hacer un spinner por medio de css
     animation: "spin 1s linear infinite",
   }}
 ></div>
+```
+
+---
+
+```css
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
 ```
